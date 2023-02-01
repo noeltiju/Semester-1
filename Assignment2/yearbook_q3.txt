@@ -1,0 +1,36 @@
+Rahul:
+Bhargav, 0
+Rayyan, 1
+Dhruv, 1
+Noel, 0
+Akshat, 1
+Bhargav:
+Rahul, 1
+Rayyan, 0
+Dhruv, 1
+Akshat, 0
+Noel, 0
+Rayyan:
+Rahul, 1
+Bhargav, 0
+Dhruv, 0
+Akshat, 1
+Noel, 1
+Dhruv:
+Rahul, 1
+Bhargav, 0
+Rayyan, 1
+Akshat, 1
+Noel, 0
+Noel:
+Rahul, 1
+Bhargav, 0
+Rayyan, 0
+Akshat, 1
+Dhruv, 1
+Akshat:
+Rahul, 1
+Bhargav, 1
+Rayyan, 1
+Noel, 1
+Dhruv, 1
