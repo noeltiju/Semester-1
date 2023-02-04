@@ -91,9 +91,6 @@ def words5():
         return ans
 
         
-        
-
-
 
 if __name__ == "__main__":
    n = int(input())
@@ -108,6 +105,8 @@ if __name__ == "__main__":
         f3_val = f3(d)
         f4_val = f4(d)
         f5_val = f5()
+
+        print(f1_val,f2_val,f3_val,f4_val,f5_val)
 
         f = open("/Users/NOEL/Desktop/Python/IP/Assignment3/Files/scores.txt","a")
         f.write(f"{fname}:\n")

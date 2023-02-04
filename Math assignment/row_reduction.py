@@ -62,7 +62,7 @@ def parametric_soln(matrix,cols,pivots_cols,pivots_rows):
         count = 0
         for k in range(len(free_column)):
             if k not in non_pivots:
-                free_column[k] = val[count]*(-1)
+                free_column[k] = round(val[count],10)*(-1)
                 count+=1
 
         free_column[i]=1
