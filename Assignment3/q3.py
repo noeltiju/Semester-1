@@ -4,7 +4,7 @@ def f1(data):
     count_unique = 0
     count_total = 0
     for c in data:
-        if c.isalpha() or c == "-" or c == "'":
+        if c.isalpha() or (c == "-" and word!="") or (c == "'"  and word!=""):
             word += c
         else:
             if word.isalpha() or "'" in word or "-" in word:

@@ -6,27 +6,36 @@ def make_dictionary(data):
         l = entry.split(", ")
         name = l[0]; status = l[1]; gate = l[2]; time = l[3]
         d = {'status':status, "gate":gate, "time":time}
+
         if name not in details:
             details[name] = {"current":d, "entries":[d]}
 
         else:
             k = details[name]
             current = k["current"]
-            entries = k['entries']
             if current:
-                if current["status"] == "ENTER" and status == "EXIT":
-                    k["current"] = {}
-                    k["entries"].append(d)
-                    
-                    
-                elif current["status"] == "EXIT" and status == "EXIT":
+                if current["status"] == "EXIT" and status == "ENTER":
                     k["current"] = d
                     k["entries"].append(d)
-                
-                elif current["status"] == "ENTER" and status == 'ENTER':
-                    k["entries"].append(d)
 
-    
+                elif current["status"] == "EXIT" and status == "EXIT":
+                    k["current"] = d
+                    l = k["entries"]
+                    l[-1] = d
+                    k["entries"] = l
+
+
+                elif current["status"] == "ENTER" and status == "ENTER":
+                    pass
+                    
+                elif current["status"] == "ENTER" and status == "EXIT":
+                    k["current"] = d
+                    k["entries"].append(d)
+            else:
+                k["current"] = d
+                k['entries'].append(d)
+
+            details[name] = k
     return details
 
 def query1(details,sname,time):
@@ -90,16 +99,16 @@ def query2_sort(ans):
         f.write(s)
     
 def query3(details,gate):
-    count=0
+    entry_count=0; exit_count=0
     for name in details:
         d = details[name]
-        entries = d["entries"]
-        g = 0; state = ""
-        for entry in entries:
-            g = entry["gate"]
-            if gate == int(g):
-                count+=1
-    return count
+        for entry in d["entries"]:
+            g = int(entry["gate"])
+            if gate == g and entry["status"] == 'ENTER':
+                entry_count+=1
+            elif gate == g and entry["status"] == 'EXIT':
+                exit_count+=1
+    return (entry_count,exit_count)
 
 if __name__ == "__main__":
     myfile = open('sorted_data.txt',"r")
@@ -107,7 +116,7 @@ if __name__ == "__main__":
     data = data[1:]
 
     details = make_dictionary(data)
-    query1(details,"Sahil Goyal","00:40:05")
-    ans = query2(details,"02:00:00","06:00:00")
-    query2_sort(ans)
+    # query1(details,"Sahil Goyal","00:40:05")
+    # ans = query2(details,"02:00:00","06:00:00")
+    # query2_sort(ans)
     print(query3(details, 3))

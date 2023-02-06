@@ -1,4 +1,4 @@
 File1.txt:
-Score: 9.056277056277056
-Top 5 words: the and plane flight of 
-5 random words: security experience where thrust whether 
+Score: 8.068548387096774
+Top 5 words: the and a of as 
+5 random words: to record number an ask 
