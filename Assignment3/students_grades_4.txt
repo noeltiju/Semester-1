@@ -1,0 +1,9 @@
+2022001: Marks: 18 Grade: F
+2022002: Marks: 45 Grade: D
+2022003: Marks: 46 Grade: D
+2022004: Marks: 55 Grade: C
+2022005: Marks: 51 Grade: C
+2022006: Marks: 54 Grade: C
+2022007: Marks: 24 Grade: F
+2022008: Marks: 58 Grade: C
+2022009: Marks: 74 Grade: B

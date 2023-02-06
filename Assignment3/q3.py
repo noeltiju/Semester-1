@@ -4,11 +4,10 @@ def f1(data):
     count_unique = 0
     count_total = 0
     for c in data:
-        if c.isalpha():
-            word+=c
-        
+        if c.isalpha() or c == "-" or c == "'":
+            word += c
         else:
-            if word.isalpha():
+            if word.isalpha() or "'" in word or "-" in word:
                 if word not in words:
                     words[word]=1
                     count_unique+=1
@@ -26,7 +25,8 @@ def f1(data):
         else:
             words[word]+=1
         count_total+=1
-
+    print(words)
+    print(count_unique,count_total)
     return count_unique / count_total
 
 def f2(data):
@@ -37,14 +37,23 @@ def f2(data):
     return count/sum(list(words.values()))
 
 def f3(data):
-    data.replace("?","")
+    data = data.replace("?",".")
+    data = data.replace("!",".")
     sentences = data.split(".")
+    sentences_ = []
+    for i in range(len(sentences)):
+        sentences[i] = sentences[i].strip("\n")
+        sentences[i] = sentences[i].strip()
+        if sentences[i] != "":
+            sentences_.append(sentences[i])
+    
     count = 0
-    for s in sentences:
+    for s in sentences_:
         if len(s.split()) > 35 or len(s.split()) < 5:
             count+=1
+    print(len(sentences_))
 
-    return count / len(sentences)
+    return count / len(sentences_)
 
 def f4(data):
     prev = ""
@@ -53,7 +62,6 @@ def f4(data):
         s = data[i] + data[i+1]
         if s == ".." or s == ",," or s == "::" or s == ";;":
             count+=1
-
 
     return count/sum(list(words.values()))
             
@@ -95,7 +103,6 @@ if __name__ == "__main__":
         f3_val = f3(d)
         f4_val = f4(d)
         f5_val = f5()
-
         print(f1_val,f2_val,f3_val,f4_val,f5_val)
         f.write(f"{fname}:\n")
         score = 4 + f1_val*6 + f2_val*6 - f3_val - f4_val - f5_val
@@ -114,14 +121,3 @@ if __name__ == "__main__":
             f.write(f"{w[r]} ")
 
         f.write("\n")
-
-
-        
-
-        
-
-
-
-
-
-    

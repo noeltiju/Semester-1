@@ -96,17 +96,8 @@ def query3(details,gate):
         entries = d["entries"]
         g = 0; state = ""
         for entry in entries:
-            if state == "ENTER" and entry["status"]=="ENTER":
-                pass
-
-            elif state == "EXIT" and entry["status"]=="EXIT":
-                g = int(entry["gate"])
-
-            else:
-                g = int(entry["gate"])
-                state = entry["status"]
-
-            if gate == g:
+            g = entry["gate"]
+            if gate == int(g):
                 count+=1
     return count
 
@@ -116,7 +107,7 @@ if __name__ == "__main__":
     data = data[1:]
 
     details = make_dictionary(data)
-    query1(details,"Sahil Goyal","00:00:05")
+    query1(details,"Sahil Goyal","00:40:05")
     ans = query2(details,"02:00:00","06:00:00")
     query2_sort(ans)
     print(query3(details, 3))

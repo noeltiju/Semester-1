@@ -1,0 +1,11 @@
+The flow of both the programs are very different.
+
+1)  The first thing that came to mind is the difference in the number of lines.
+q4(with oops) took 114 lines whereas q5 took about 70 lines.
+
+2) q4 took 0.0014252662658691406s and q5 took 0.0010149478912353516
+
+3)  But one more thing I noticed among the two codes are that: q4 is able to handle mutliple
+courses with relative ease compared to q5 because different courses have different objects
+with attributes and methods that makes it much easier to handle.
+

@@ -54,6 +54,8 @@ class Course():
             elif mark >= self.final_cutoffs[2]:
                 self.grades.append('C')
             
+            elif mark >= self.final_cutoffs[3]:
+                self.grades.append("D")
             else:
                 self.grades.append("F")
 
@@ -77,6 +79,24 @@ class Course():
     def summary(self):
         return self.stu_grades
 
+    def get_marks(self):
+        return self.marks
+
+    def get_summary(self):
+        print(f"""
+        
+Course name: {self.name}
+
+Initial cutoffs: 
+    {self.policy}
+
+Final Cutoffs: 
+    {self.final_cutoffs}
+
+Student Grades: 
+    {self.stu_grades}
+""")
+
 class Student():
     def __init__(self,marks,rollno):
         self.marks = marks
@@ -88,26 +108,37 @@ class Student():
     def get_rollno(self):
         return self.rollno
     
-if __name__ == "__main__":
-    f = open("students_marks.txt","r")
-    f1 = open("students_grades.txt","w")
-    students = f.read().splitlines()
-    course = Course("IP",4,[80, 65, 50, 40], [("labs", 30), ("midsem", 15), ("assignments", 30), ("endsem", 25)])
-    for line in students:
-        line = line.split(",")
-        rollno = int(line[0])
-        marks = list(map(int,line[1:]))
-        st = Student(marks,rollno)
 
-        course.add_student(st)
-    
-    course.find_marks()
-    course.final_cutoff()
-    course.find_grades()
-    course.find_student_grades()
+import time
+start = time.time()
 
-    d = course.summary()
+f = open("students_marks.txt","r")
+f1 = open("students_grades_4.txt","w")
+students = f.read().splitlines()
+course = Course("IP",4,[80, 65, 50, 40], [("labs", 30), ("midsem", 15), ("assignments", 30), ("endsem", 25)])
+for line in students:
+    line = line.split(", ")
+    rollno = int(line[0])
+    marks = list(map(int,line[1:]))
+    st = Student(marks,rollno)
 
-    for i in d:
-        s = f"{i} has grade {d[i]}\n"
-        f1.write(s)
+    course.add_student(st)
+
+course.find_marks()
+course.final_cutoff()
+course.find_grades()
+course.find_student_grades()
+
+d = course.summary()
+marks = course.get_marks()
+course.get_summary()
+count = 0
+for i in d:
+    s = f"{i}: Marks: {marks[count]} Grade: {d[i]}\n"
+    count+=1
+    f1.write(s)
+
+
+
+end = time.time()
+print(end - start)
