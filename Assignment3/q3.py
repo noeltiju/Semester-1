@@ -33,11 +33,7 @@ def f2(data):
     vals = list(words.values())
     vals.sort(reverse=True)
     top_vals = vals[0:5]
-    count = 0
-    for w in words:
-        if words[w] in top_vals:
-            count+=1
-
+    count = sum(top_vals)
     return count/sum(list(words.values()))
 
 def f3(data):
@@ -45,7 +41,7 @@ def f3(data):
     sentences = data.split(".")
     count = 0
     for s in sentences:
-        if len(s.split()) > 35 or len(s.split()) > 5:
+        if len(s.split()) > 35 or len(s.split()) < 5:
             count+=1
 
     return count / len(sentences)
@@ -53,19 +49,12 @@ def f3(data):
 def f4(data):
     prev = ""
     count=0
-    for i in range(1,len(data)):
-        e = data[i]
-        if e == "." and prev == "." and data[i-1] != ".":
+    for i in range(len(data)-1):
+        s = data[i] + data[i+1]
+        if s == ".." or s == ",," or s == "::" or s == ";;":
             count+=1
-        elif e == "," and prev == "," and data[i-1] != ",":
-            count+=1
-        
-        elif e == ":" and prev == ":" and data[i-1] != ":":
-            count+=1
-        elif e == ";" and prev == ";" and data[i-1] != ";":
-            count+=1
-        
-        prev = e
+
+
     return count/sum(list(words.values()))
             
 def f5():
@@ -82,7 +71,7 @@ def words5():
         count = 0
         while count < 5:
             for w in words:
-                if d[w] == vals[count]:
+                if words[w] == vals[count]:
                     ans.append(w)
                     count+=1
         return ans
@@ -90,15 +79,16 @@ def words5():
     except:
         return ans
 
-        
 
 if __name__ == "__main__":
    n = int(input())
    from random import randint
+   f = open("/Users/NOEL/Documents/GitHub/Semester-1/Assignment3/Files/scores.txt","w")
    for i in range(1,n+1):
     fname = f"File{i}.txt"
     words = {}
-    with open(f"/Users/NOEL/Desktop/Python/IP/Assignment3/Files/{fname}") as myfile:
+
+    with open(f"/Users/NOEL/Documents/GitHub/Semester-1/Assignment3/Files/{fname}") as myfile:
         d = myfile.read()
         f1_val = f1(d)
         f2_val = f2(d)
@@ -107,8 +97,6 @@ if __name__ == "__main__":
         f5_val = f5()
 
         print(f1_val,f2_val,f3_val,f4_val,f5_val)
-
-        f = open("/Users/NOEL/Desktop/Python/IP/Assignment3/Files/scores.txt","a")
         f.write(f"{fname}:\n")
         score = 4 + f1_val*6 + f2_val*6 - f3_val - f4_val - f5_val
         f.write(f"Score: {score}\n")
@@ -116,7 +104,8 @@ if __name__ == "__main__":
         l = words5()
         for i in l:
             f.write(i+" ")
-            f.write("\n")
+            
+        f.write("\n")
 
         w = list(words.keys())
         f.write("5 random words: ")

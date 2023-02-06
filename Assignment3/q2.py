@@ -1,4 +1,5 @@
 #d = {name; {current={},entries[{},{}]}}
+
 def make_dictionary(data):
     details = {}
     for entry in data:
@@ -65,19 +66,19 @@ def query2(details,start,end):
                     pass
                 elif i["status"]=="EXIT" and state=="EXIT":
                     gate = i["gate"]; time = i["time"]
-                    d=i
+                    d = i
                 
                 else:
                     state = i["status"];gate = i["gate"]; time = i["time"]
                     d = i
-
-        d["name"] = name
-        ans.append(d)
+        if d!= {}:
+            d["name"] = name
+            ans.append(d)
     
     return ans
 
 def query2_sort(ans):
-    f= open("output_q2.txt","w")
+    f = open("output_q2.txt","w")
     ans = sorted(ans, key=lambda x: x['time'])
     for i in ans:
         state  = i["status"]; name = i["name"]; time = i["time"]; gate = i["gate"]
@@ -93,10 +94,20 @@ def query3(details,gate):
     for name in details:
         d = details[name]
         entries = d["entries"]
+        g = 0; state = ""
         for entry in entries:
-            if int(entry["gate"]) == gate:
-                count+=1
+            if state == "ENTER" and entry["status"]=="ENTER":
+                pass
 
+            elif state == "EXIT" and entry["status"]=="EXIT":
+                g = int(entry["gate"])
+
+            else:
+                g = int(entry["gate"])
+                state = entry["status"]
+
+            if gate == g:
+                count+=1
     return count
 
 if __name__ == "__main__":
@@ -106,7 +117,6 @@ if __name__ == "__main__":
 
     details = make_dictionary(data)
     query1(details,"Sahil Goyal","00:00:05")
-    ans = query2(details,"00:00:05","11:00:00")
+    ans = query2(details,"02:00:00","06:00:00")
     query2_sort(ans)
-    count = query3(details,3)
-    print(count)
+    print(query3(details, 3))

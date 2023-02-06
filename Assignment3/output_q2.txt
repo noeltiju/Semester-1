@@ -1,37 +1,15 @@
-Khushdev Pandit has exited college at 00:00:20 using gate 1
-Aryan Chaudhary has exited college at 00:03:58 using gate 1
-Swaib Ilias Mazumder has exited college at 00:04:35 using gate 3
-Vamshi Krishna Vannekala has exited college at 00:05:42 using gate 3
-Shambhavi Sharma has exited college at 00:05:52 using gate 3
-Vibhor Agarwal has exited college at 00:08:21 using gate 3
-Thakkar Divyakumar Rameshbhai has exited college at 00:08:42 using gate 1
-Shraman Jain has exited college at 00:09:41 using gate 5
-Rishabh Oberoi has exited college at 00:13:11 using gate 5
-Ujjwal Garg has exited college at 00:15:42 using gate 3
-Sahil Goyal has exited college at 00:16:10 using gate 5
-Thanmayee Matha has exited college at 00:16:10 using gate 3
-Swatantra kumar nigam has exited college at 00:19:06 using gate 1
-Shashank Dargar has exited college at 00:19:28 using gate 5
-Yuvraj Singh has exited college at 00:20:00 using gate 1
-Karan Baboota has exited college at 00:23:23 using gate 5
-Ankita Mahato has exited college at 00:26:39 using gate 1
-Dhruv Mishra has exited college at 00:28:10 using gate 5
-Manav Saini has exited college at 00:29:17 using gate 1
-Param Shah has exited college at 00:34:02 using gate 1
-Manas has exited college at 00:39:09 using gate 3
-Ayush Srivastava has exited college at 00:52:36 using gate 1
-Snehal has exited college at 10:34:01 using gate 5
-Anuj Yadav has exited college at 10:35:38 using gate 1
-Mohammed Kaif has exited college at 10:48:26 using gate 1
-Rohan Dhar has exited college at 10:48:33 using gate 3
-Swati Jha has exited college at 10:49:31 using gate 5
-Sumit Kumar has exited college at 10:49:40 using gate 3
-Kartik Gupta has exited college at 10:49:57 using gate 5
-Rishika Jain has exited college at 10:51:15 using gate 1
-Sushil Kumar has exited college at 10:52:07 using gate 1
-Smiti Singhal has exited college at 10:53:01 using gate 3
-Bhavya Jain has exited college at 10:55:53 using gate 5
-Surbhi Goyal has exited college at 10:57:13 using gate 5
-Aditya Raj Singh has exited college at 10:57:39 using gate 1
-Bharat Goyal has exited college at 10:58:22 using gate 3
-Gayam Shivakanth Reddy has exited college at 10:59:43 using gate 1
+Snehal has exited college at 05:34:22 using gate 3
+Smiti Singhal has exited college at 05:35:17 using gate 5
+Mohammed Kaif has exited college at 05:36:39 using gate 3
+Anuj Yadav has exited college at 05:39:12 using gate 5
+Aditya Raj Singh has exited college at 05:41:39 using gate 1
+Kartik Gupta has exited college at 05:42:24 using gate 5
+Sumit Kumar has exited college at 05:44:14 using gate 3
+Rishika Jain has exited college at 05:45:01 using gate 1
+Surbhi Goyal has exited college at 05:45:07 using gate 5
+Bhavya Jain has exited college at 05:50:36 using gate 3
+Gayam Shivakanth Reddy has exited college at 05:50:48 using gate 3
+Swati Jha has exited college at 05:51:22 using gate 1
+Bharat Goyal has exited college at 05:57:52 using gate 5
+Rohan Dhar has exited college at 05:57:53 using gate 1
+Sushil Kumar has exited college at 05:58:10 using gate 5

@@ -1,5 +1,8 @@
-
 File1.txt:
-Score: 13.0
-File1.txt:
-Score: 13.0
+Score: 9.877922077922078
+Top 5 words: the her she and to 
+5 random words: where slowly never lights adventure 
+File2.txt:
+Score: 10.13953488372093
+Top 5 words: the of a and it 
+5 random words: laughter rustling fields oak by 
