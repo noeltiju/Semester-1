@@ -1,11 +1,28 @@
-The flow of both the programs are very different.
+Advantages of using OO
+1. OOPs have an advantage over dictionary when it comes to modularity.
+2. Multiple courses can be handled faster with OOPs than dictionaries.
 
-1)  The first thing that came to mind is the difference in the number of lines.
-q4(with oops) took 114 lines whereas q5 took about 70 lines.
+Advantages of using Dictionaries
+1. Dictionaries are faster to use when it comes to accessing/getting a value because of its hashing feature.
+2. The code using dictionaries have an edge over OOPs when it comes to time
 
-2) q4 took 0.0014252662658691406s and q5 took 0.0010149478912353516
 
-3)  But one more thing I noticed among the two codes are that: q4 is able to handle mutliple
-courses with relative ease compared to q5 because different courses have different objects
-with attributes and methods that makes it much easier to handle.
+Disadvantage of using OO
+1. OOPs is not suitable for all type of programs
+2. Makes code much bigger in size
 
+Disadvantage of using dictionaries
+1. Harder to handle multiple courses.
+2. Dictionaries contain a key-value pair but there are cases when one key should be linked to multiple attributes which is done faster in OOPs
+
+Performance comparison for grading operation (give in each line: value of N; time taken by two approaches in seconds, and which is faster and by how much).
+1. N: 1000
+2. Time by OO: 1.5311810970306396
+3. Time by dictionary: 1.4167659282684326
+4. X is faster; fraction of time x took is: 0.074723472608229
+
+Performance comparison for search operation (give in each line: value of N; time taken by two approaches in seconds, and which is faster and by how much).
+1. N: 1000
+2. Time by OO:1.5440797805786133
+3. Time by dictionary:1.399366855621338
+4. X is faster; fraction of time x took is: 

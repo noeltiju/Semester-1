@@ -56,14 +56,24 @@ def f3(data):
     return count / len(sentences_)
 
 def f4(data):
-    prev = ""
-    count=0
-    for i in range(len(data)-1):
-        s = data[i] + data[i+1]
-        if s == ".." or s == ",," or s == "::" or s == ";;":
-            count+=1
 
-    return count/sum(list(words.values()))
+    count = 0
+    unit = ""
+    state = False
+    for i in range(len(data)):
+        if data[i].isalnum() and state == True:
+            val = unit.replace(" ","")
+            if len(val) > 1:
+                count+= len(val)
+            state = False
+
+        elif data[i] in "!;:,. ":
+            unit+=data[i]
+            state = True
+
+    if len(unit.split()) > 1:
+        count += len(unit.split())
+    return count
             
 def f5():
     if sum(list(words.values())) > 750:
