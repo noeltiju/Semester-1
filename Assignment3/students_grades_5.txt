@@ -1,3 +1,9 @@
-2022337 has grade F
-2022338 has grade C
-2022339 has grade A
+2022001 has grade F mark 18
+2022002 has grade F mark 45
+2022003 has grade F mark 46
+2022004 has grade C mark 55
+2022005 has grade C mark 51
+2022006 has grade C mark 54
+2022007 has grade F mark 24
+2022008 has grade C mark 58
+2022009 has grade B mark 74

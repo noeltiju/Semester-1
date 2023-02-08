@@ -1,3 +1,6 @@
+import time
+start = time.time()
+
 class Course():
     def __init__(self,name,credits,policy,weights):
         self.name = name
@@ -82,8 +85,18 @@ class Course():
     def get_marks(self):
         return self.marks
 
+    def get_mark_weightage(self,rollno):
+        for i in self.students:
+            if i.get_rollno() == rollno:
+                return i.get_marks()
+
+    def get_grade(self,rollno):
+        if rollno in self.stu_grades:
+            return self.stu_grades[rollno]
+
     def get_summary(self):
         print(f"""
+
         
 Course name: {self.name}
 
@@ -107,36 +120,45 @@ class Student():
 
     def get_rollno(self):
         return self.rollno
+
     
 
-import time
-start = time.time()
+for i in range(1000):
 
-f = open("students_marks.txt","r")
-f1 = open("students_grades_4.txt","w")
-students = f.read().splitlines()
-course = Course("IP",4,[80, 65, 50, 40], [("labs", 30), ("midsem", 15), ("assignments", 30), ("endsem", 25)])
-for line in students:
-    line = line.split(", ")
-    rollno = int(line[0])
-    marks = list(map(int,line[1:]))
-    st = Student(marks,rollno)
+    f = open("students_marks.txt","r")
+    f1 = open("students_grades_4.txt","w")
+    students = f.read().splitlines()
+    course = Course("IP",4,[80, 65, 50, 40], [("labs", 30), ("midsem", 15), ("assignments", 30), ("endsem", 25)])
+    for line in students:
+        line = line.split(", ")
+        rollno = int(line[0])
+        marks = list(map(int,line[1:]))
+        st = Student(marks,rollno)
 
-    course.add_student(st)
+        course.add_student(st)
 
-course.find_marks()
-course.final_cutoff()
-course.find_grades()
-course.find_student_grades()
+    course.find_marks()
+    course.final_cutoff()
+    course.find_grades()
+    course.find_student_grades()
 
-d = course.summary()
-marks = course.get_marks()
-course.get_summary()
-count = 0
-for i in d:
-    s = f"{i}: Marks: {marks[count]} Grade: {d[i]}\n"
-    count+=1
-    f1.write(s)
+    d = course.summary()
+    marks = course.get_marks()
+    count = 0
+
+    #1
+    course.get_summary()
+
+    #2
+    for i in d:
+        s = f"{i}: Marks: {marks[count]} Grade: {d[i]}\n"
+        count+=1
+        f1.write(s)
+
+    #3
+    n = 2022001
+    m = course.get_mark_weightage(n)
+    s = f"{n}: Marks: {sum(m)} Weightage: {m} Grade: {d[i]}\n"
 
 
 
