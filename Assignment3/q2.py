@@ -116,7 +116,7 @@ if __name__ == "__main__":
     data = data[1:]
 
     details = make_dictionary(data)
-    # query1(details,"Sahil Goyal","00:40:05")
-    # ans = query2(details,"02:00:00","06:00:00")
-    # query2_sort(ans)
+    query1(details,"Sahil Goyal","00:40:05")
+    ans = query2(details,"02:00:00","06:00:00")
+    query2_sort(ans)
     print(query3(details, 3))

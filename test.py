@@ -1,26 +1,19 @@
-
-def f4(data):
-    l = []
-    prev = ""
-    count = 0
+def f4(d):
     unit = ""
-    state = False
-    for i in range(len(data)):
+    count = 0
+    for i in d:
+        if i in ",.:;" or i == " ":
+            unit+=i
 
-        if data[i].isalnum() and state == True:
-            val = unit.replace(" ","")
-            if len(val) > 1:
-                count+= len(val)
-            state = False
-
-        elif data[i] in "!;:,. ":
-            unit+=data[i]
-            state = True
-
-    if len(unit.split()) > 1:
-        count += len(unit.split())
+        elif i.isalpha() or i.isnumeric():
+            l = unit.split()
+            if len(l)>1:
+                count+=len(l)
+            unit = ""
     print(unit)
+    l = unit.split()
+    if len(l)>1:
+        count+=len(l)
     print(count)
 
-s = "apple.. . .   ."
-f4(s)
+f4("Apple 1. . . ....  Mango . . . ")

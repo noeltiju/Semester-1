@@ -25,4 +25,4 @@ Performance comparison for search operation (give in each line: value of N; time
 1. N: 1000
 2. Time by OO:1.5440797805786133
 3. Time by dictionary:1.399366855621338
-4. X is faster; fraction of time x took is: 
+4. X is faster; fraction of time x took is: 0.09372114496768236

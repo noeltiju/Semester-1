@@ -1,4 +1,8 @@
 File1.txt:
 Score: 8.068548387096774
 Top 5 words: the and a of as 
-5 random words: use number determine following gate 
+5 random words: querying through or well out 
+File2.txt:
+Score: 9.064935064935064
+Top 5 words: the and plane flight of 
+5 random words: instructions long amazing periods prepare 

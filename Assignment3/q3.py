@@ -25,8 +25,7 @@ def f1(data):
         else:
             words[word]+=1
         count_total+=1
-    print(words)
-    print(count_unique,count_total)
+
     return count_unique / count_total
 
 def f2(data):
@@ -51,29 +50,26 @@ def f3(data):
     for s in sentences_:
         if len(s.split()) > 35 or len(s.split()) < 5:
             count+=1
-    print(len(sentences_))
 
     return count / len(sentences_)
 
 def f4(data):
-
-    count = 0
     unit = ""
-    state = False
-    for i in range(len(data)):
-        if data[i].isalnum() and state == True:
-            val = unit.replace(" ","")
-            if len(val) > 1:
-                count+= len(val)
-            state = False
+    count = 0
+    for i in d:
+        if i in ",.:;" or i == " ":
+            unit+=i
 
-        elif data[i] in "!;:,. ":
-            unit+=data[i]
-            state = True
+        elif i.isalpha() or i.isnumeric():
+            l = unit.split()
+            if len(l)>1:
+                count+=len(l)
+            unit = ""
+    l = unit.split()
+    if len(l)>1:
+        count+=len(l)
 
-    if len(unit.split()) > 1:
-        count += len(unit.split())
-    return count
+    return count/sum(list(words.values()))
             
 def f5():
     if sum(list(words.values())) > 750:
@@ -113,7 +109,6 @@ if __name__ == "__main__":
         f3_val = f3(d)
         f4_val = f4(d)
         f5_val = f5()
-        print(f1_val,f2_val,f3_val,f4_val,f5_val)
         f.write(f"{fname}:\n")
         score = 4 + f1_val*6 + f2_val*6 - f3_val - f4_val - f5_val
         f.write(f"Score: {score}\n")

@@ -1,6 +1,3 @@
-import time
-start = time.time()
-
 class Course():
     def __init__(self,name,credits,policy,weights):
         self.name = name
@@ -108,6 +105,9 @@ Final Cutoffs:
 
 Student Grades: 
     {self.stu_grades}
+
+Weights:
+    {self.weights}
 """)
 
 class Student():
@@ -123,44 +123,50 @@ class Student():
 
     
 
-for i in range(1000):
-
-    f = open("students_marks.txt","r")
-    f1 = open("students_grades_4.txt","w")
-    students = f.read().splitlines()
-    course = Course("IP",4,[80, 65, 50, 40], [("labs", 30), ("midsem", 15), ("assignments", 30), ("endsem", 25)])
-    for line in students:
-        line = line.split(", ")
-        rollno = int(line[0])
-        marks = list(map(int,line[1:]))
-        st = Student(marks,rollno)
-
-        course.add_student(st)
-
-    course.find_marks()
-    course.final_cutoff()
-    course.find_grades()
-    course.find_student_grades()
-
-    d = course.summary()
-    marks = course.get_marks()
-    count = 0
-
-    #1
-    course.get_summary()
-
-    #2
-    for i in d:
-        s = f"{i}: Marks: {marks[count]} Grade: {d[i]}\n"
-        count+=1
-        f1.write(s)
-
-    #3
-    n = 2022001
-    m = course.get_mark_weightage(n)
-    s = f"{n}: Marks: {sum(m)} Weightage: {m} Grade: {d[i]}\n"
 
 
+f = open("students_marks.txt","r")
+f1 = open("students_grades_4.txt","w")
+students = f.read().splitlines()
+course = Course("IP",4,[80, 65, 50, 40], [("labs", 30), ("midsem", 15), ("assignments", 30), ("endsem", 25)])
+for line in students:
+    line = line.split(", ")
+    rollno = int(line[0])
+    marks = list(map(int,line[1:]))
+    st = Student(marks,rollno)
 
-end = time.time()
-print(end - start)
+    course.add_student(st)
+
+course.find_marks()
+course.final_cutoff()
+course.find_grades()
+course.find_student_grades()
+
+d = course.summary()
+marks = course.get_marks()
+count = 0
+while True:
+
+    c = int(input("Enter choice: "))
+    if c == 1:
+        course.get_summary()
+
+    elif c == 2:
+        for i in d:
+            s = f"{i}: Marks: {marks[count]} Grade: {d[i]}\n"
+            count+=1
+            f1.write(s)
+
+    elif c == 3:
+        n = int(input("Enter a roll no:"))
+        m = course.get_mark_weightage(n)
+        if m == None:
+            print("No such record!")
+            continue
+        s = f"{n}: Marks: {sum(m)} Weightage: {m} Grade: {d[i]}\n"
+        print(s)
+
+    elif c == 4:
+        f1.close()
+        f.close()
+        break
